@@ -65,7 +65,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function MyDrawer() {
+export default function MyDrawer({ Component, pageProps }) {
   const theme = useTheme();
   const [openDrawer, setOpenDrawer] = React.useState(false); 
   const handleDrawerOpen = () => {
@@ -136,7 +136,7 @@ export default function MyDrawer() {
       </Drawer>
       <Main open={openDrawer} style={{ padding:0}}> 
         <DrawerHeader />
-         <BottomNav/>     {/*   Here is Bottom Navigation   */}
+         <BottomNav Component={Component} pageProps={pageProps} />     {/*   Here is Bottom Navigation   */}
       </Main>
     </Box>
   );

@@ -6,19 +6,23 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import RestoreIcon from '@mui/icons-material/Restore';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Paper from '@mui/material/Paper';
-import List from '@mui/material/List';
 import HomeIcon from '@mui/icons-material/Home';
-
-
-export default function BottomNav() {
+import { useRouter } from 'next/router'
+ 
+export default function BottomNav({ Component, pageProps }) {
     const [value, setValue] = React.useState(0);
     const ref = React.useRef(null);
+    const router = useRouter()
+
+    const RoutePage = (e,page) => {
+        e.preventDefault()
+        router.push(page)
+    }
+
     return (
-        <Box sx={{ pb: 7 }} ref={ref}>
+        <Box ref={ref}>
             <CssBaseline />
-            <List>
-                {value}
-            </List>
+            <Component {...pageProps} />
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                 <BottomNavigation
                     showLabels
@@ -26,10 +30,40 @@ export default function BottomNav() {
                     onChange={(event, newValue) => {
                         setValue(newValue);
                     }}
+
+                    sx={{
+                        bgcolor: 'blue',
+                        height:"45px",
+                        '& .MuiSvgIcon-root': {
+                            // color: theme => theme.palette.secondary.main
+                            color:"rgba(255, 166, 0, 0.648)"
+                          },
+                          '& .MuiBottomNavigationAction-label': {
+                            // color: theme => theme.palette.secondary.main
+                            color:"white"
+                          },
+                        '& .Mui-selected': {
+                          '& .MuiBottomNavigationAction-label': {
+                            fontSize: theme => theme.typography.caption,
+                            transition: 'none',
+                            fontWeight: 'bold',
+                            lineHeight: '20px' ,  
+                          },
+                          '& .MuiSvgIcon-root': {
+                            // color: theme => theme.palette.secondary.main
+                            color:" orange"
+                          },
+                          '& .MuiBottomNavigationAction-label': {
+                            // color: theme => theme.palette.secondary.main
+                            color:" white"
+                          }
+                        }
+                      }}
+
                 >
-                    <BottomNavigationAction label="Home" icon={<HomeIcon style={{ color: "orange" }} />} />
-                    <BottomNavigationAction label="MY WORK" icon={<FavoriteIcon style={{ color: "orange" }} />} />
-                    <BottomNavigationAction label="POSTS" icon={<RestoreIcon style={{ color: "orange" }} />} />
+                    <BottomNavigationAction label="Home" onClick={(e) => RoutePage(e, "/")} icon={<HomeIcon  />} />
+                    <BottomNavigationAction onClick={(e) => RoutePage(e, "/projects")} label="MY WORK" icon={<FavoriteIcon  />} />
+                    <BottomNavigationAction onClick={(e) => RoutePage(e, "/posts")} label="POSTS" icon={<RestoreIcon  />} />
                 </BottomNavigation>
             </Paper>
         </Box>
