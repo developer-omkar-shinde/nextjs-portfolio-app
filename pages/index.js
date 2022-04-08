@@ -26,9 +26,9 @@ export default function Home() {
       <main className={styles.HomeMain} itemScope itemType="https://omkarshinde.vercel.app/">
 
         <h1 itemProp="omkar shinde"  >Hello,</h1>
-        <h2 itemProp="name">I'm Omkar Shinde</h2>
-        <h1 itemProp="omkar shinde" class="typewrite" data-period="2000" data-type='[ "Web Devloper", "React Developer", "Web Designer"  ]'>
-          <span class="wrap"></span>
+        <h2 itemProp="name">I&apos;m Omkar Shinde</h2>
+        <h1 itemProp="omkar shinde" className="typewrite" data-period="2000" data-type='["Web Devloper", "React Developer","Web Designer"]'>
+          <span className="wrap"></span>
         </h1>
         <p itemProp="description">
           I am passionate about building excellent Website that improves the lives of those around me. I specialize in creating software for clients ranging from individuals and small-businesses all the way to large enterprise corporations. What would you do if you had a software expert available at your fingertips?
@@ -39,20 +39,20 @@ export default function Home() {
         </div>
         <br />
         <div className={styles.SocialIcons}>
-          <a href="https://github.com/omkar-shinde-96k" itemProp="Github" itemType="https://github.com/omkar-shinde-96k" class="fa fa-github"></a>
+          <a href="https://github.com/omkar-shinde-96k" itemProp="Github" itemType="https://github.com/omkar-shinde-96k" className="fa fa-github"></a>
 
-          <a style={{ color: "blue" }} itemProp="telphone" href="tel:9309120138" class="fa fa-phone"></a>
+          <a style={{ color: "blue" }} itemProp="telphone" href="tel:9309120138" className="fa fa-phone"></a>
 
-          <a style={{ color: "green" }} itemProp="whatsapp" href="https://wa.me/919309120138" class="fa fa-whatsapp"></a>
+          <a style={{ color: "green" }} itemProp="whatsapp" href="https://wa.me/919309120138" className="fa fa-whatsapp"></a>
 
-          <a style={{ color: "rgb(234,66,52)" }} itemProp="email" href="mailto:oshinde796@gmail.com" class="fa fa-envelope"></a>
+          <a style={{ color: "rgb(234,66,52)" }} itemProp="email" href="mailto:oshinde796@gmail.com" className="fa fa-envelope"></a>
 
-          <a style={{ color: "#3366ff" }} itemProp="linkedin" href="https://www.linkedin.com/in/omkar-shinde-992b9120b/" class="fa fa-linkedin"></a>
+          <a style={{ color: "#3366ff" }} itemProp="linkedin" href="https://www.linkedin.com/in/omkar-shinde-992b9120b/" className="fa fa-linkedin"></a>
 
-          <a style={{ color: "#bc2a8d" }} itemProp="instagram" href="https://www.instagram.com/learn_web_development/" class="fa fa-instagram"></a>
+          <a style={{ color: "#bc2a8d" }} itemProp="instagram" href="https://www.instagram.com/learn_web_development/" className="fa fa-instagram"></a>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <a href="#about" class=" fa fa-chevron-circle-down" style={{ color: "white", fontSize: "50px", textDecoration: "none", textAlign: "center" }}></a>
+          <a href="#about" className=" fa fa-chevron-circle-down" style={{ color: "white", fontSize: "50px", textDecoration: "none", textAlign: "center" }}></a>
         </div>
       </main>
       <About />
