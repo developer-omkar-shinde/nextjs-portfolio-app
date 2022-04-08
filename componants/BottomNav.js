@@ -34,10 +34,14 @@ export default function BottomNav({ Component, pageProps }) {
                         bgcolor: 'blue',
                         height:"45px",
                         '& .MuiSvgIcon-root': { 
-                            color:"orange"
+                            color:"orange",
+                            border:"none",
+                            outline:"none"
                           },
                           '& .MuiBottomNavigationAction-label': { 
-                            color:"white"
+                            color:"white",
+                            border:"none",
+                            outline:"none"
                           },
                         '& .Mui-selected': {
                           '& .MuiBottomNavigationAction-label': {
@@ -45,18 +49,22 @@ export default function BottomNav({ Component, pageProps }) {
                             transition: 'none',
                             fontWeight: 'bold',
                             lineHeight: '20px' ,  
-                            color:"white" 
+                            color:"white"  ,
+                            border:"none",
+                            outline:"none"
                           },
                           '& .MuiSvgIcon-root': { 
-                            color:"red"
+                            color:"red",
+                            border:"none",
+                            outline:"none"
                           }, 
                         }
                       }}
 
                 >
-                    <BottomNavigationAction label="HOME" onClick={(e) => RoutePage(e, "/")} icon={<HomeIcon  />} />
-                    <BottomNavigationAction onClick={(e) => RoutePage(e, "/projects")} label="MY WORK" icon={<FavoriteIcon  />} />
-                    <BottomNavigationAction onClick={(e) => RoutePage(e, "/posts")} label="POSTS" icon={<RestoreIcon  />} />
+                    <BottomNavigationAction label="HOME" onClick={(e) => RoutePage(e, "/")} icon={<HomeIcon  />} style={{outline:"none"}} />
+                    <BottomNavigationAction label="MY WORK" onClick={(e) => RoutePage(e, "/projects")}  icon={<FavoriteIcon  />} style={{outline:"none"}} />
+                    <BottomNavigationAction label="POSTS" onClick={(e) => RoutePage(e, "/posts")}icon={<RestoreIcon  />} style={{outline:"none"}} />
                 </BottomNavigation>
             </Paper>
         </Box>

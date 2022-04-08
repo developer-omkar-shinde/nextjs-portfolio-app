@@ -1,6 +1,6 @@
 import React from 'react' ;
 import Image from 'next/image';
-import omkarpic from './bg.jpg'
+import omkarpic from './omkar.jpg'
 const About = () => {
 
     const Skill = (props) => {

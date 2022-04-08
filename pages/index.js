@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import * as React from 'react'; 
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss';
@@ -35,14 +34,12 @@ export default function Home() {
         </p>
         <br />
         <div style={{ display: "flex" }}>
-          <a href="https://wa.me/919309120138" itemProp="Download Resume" itemType="https://omkarshinde.vercel.app/" className="mybtn text-center"> Hire Me</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a itemProp="telephone" href="https://drive.google.com/file/d/1ibG6vJ19vLw_W84av2xUc-xXD2EcD3Yi/view" className="mybtn text-center"> Download Resume</a>
+          <a href="https://www.linkedin.com/in/omkar-shinde-992b9120b/" target="_blank" itemProp="Download Resume" itemType="https://omkarshinde.com/" className="mybtn text-center"> Hire Me</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a itemProp="telephone" href="https://drive.google.com/file/d/1ibG6vJ19vLw_W84av2xUc-xXD2EcD3Yi/view" className="mybtn text-center"> Download Resume</a>
         </div>
         <br />
         <div className={styles.SocialIcons}>
           <a href="https://github.com/omkar-shinde-96k" itemProp="Github" itemType="https://github.com/omkar-shinde-96k" className="fa fa-github"></a>
-
-          <a style={{ color: "blue" }} itemProp="telphone" href="tel:9309120138" className="fa fa-phone"></a>
-
+ 
           <a style={{ color: "green" }} itemProp="whatsapp" href="https://wa.me/919309120138" className="fa fa-whatsapp"></a>
 
           <a style={{ color: "rgb(234,66,52)" }} itemProp="email" href="mailto:oshinde796@gmail.com" className="fa fa-envelope"></a>
