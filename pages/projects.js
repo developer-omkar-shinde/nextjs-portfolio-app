@@ -1,5 +1,5 @@
- 
-import React from 'react' 
+
+import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 // import styles from '../styles/Home.module.css'; 
@@ -14,21 +14,26 @@ import Image from 'next/image'
 // import Reactjs from './React'
 // import MERN from './MERN'
 // import CSS from './CSS'
- 
+
 function ProjectCom(props) {
   return (
-    <> 
+    <>
       <div className="project-outer text-center col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 ">
-        <div className="project-inner  boxshadow"> 
-          <img src={props.img} width="100%" height="50%" alt={props.title} />
-          <h5>{props.title}</h5>
-          <p>{props.details}</p>
-          <div class="details">
-            <a href={props.priview} target="_blank" style={{ color: "black", border: "1px solid blue" }} class="mybtn">Visit Website</a>
-            <a href={props.github || `https://github.com/omkar-shinde-96k`} target="_blank" style={{ color: "black", border: "1px solid blue" }} class="mybtn">GitHub</a>
+        <div className="project-inner boxshadow"> 
+            <Image className="img-div" src={props.img} width="700" height="380" style={{
+              width: "100%", 
+              height: "100%", 
+            }} alt={props.title} />
+   
+            <h5>{props.title}</h5>
+            <p>{props.details}</p>
+        
+          <div className="details">
+            <a href={props.priview} target="_blank"  rel="noreferrer" style={{ color: "black", border: "1px solid blue" }} className="mybtn">Visit Website</a>
+            <a href={props.github || `https://github.com/omkar-shinde-96k`} target="_blank"  rel="noreferrer" style={{ color: "black", border: "1px solid blue" }} className="mybtn">GitHub</a>
           </div>
         </div>
-      </div> 
+      </div>
     </>
   )
 }
@@ -75,37 +80,37 @@ export default function projects() {
 
 
       {/* ////////// */}
- 
+
       <h1 id="about" className="text-center p-1 pb-0"> Projects </h1>
 
       <br />
 
       <div className="container-fluid">
-        <div className="row project-row" itemscope="Projects" itemtype="https://omkarshinde.vercel.app/#projects" >
+        <div className="row project-row" itemScope="Projects" itemType="https://omkarshinde.vercel.app/#projects" >
 
-          <ProjectCom img="../../images/portfolio.jpg" github="https://github.com/omkar-shinde-96k" priview="" title=" Instagram Clone " details="HTML , SCSS , Javascript , React Js , NodeJS , ExpressJS , MongoDB" />
+          <ProjectCom img="/images/portfolio.jpg" github="https://github.com/omkar-shinde-96k" priview="" title=" Instagram Clone " details="HTML , SCSS , Javascript , React Js , NodeJS , ExpressJS , MongoDB" />
 
-          <ProjectCom img="../../images/gmailclone.jpg" github="https://github.com/omkar-shinde-96k" priview="https://gmailclone.vercel.app/" title="Gmail Clone" details="HTML , SCSS , Javascript , React Js" />
+          <ProjectCom img="/images/gmailclone.jpg" github="https://github.com/omkar-shinde-96k" priview="https://gmailclone.vercel.app/" title="Gmail Clone" details="HTML , SCSS , Javascript , React Js" />
 
-          <ProjectCom img="../../images/amazon.jpg" github="https://github.com/omkar-shinde-96k" priview="" title=" Amazon Clone " details="HTML , SCSS , Javascript , React Js , NodeJS , ExpressJS , MongoDB" />
+          <ProjectCom img="/images/amazon.jpg" github="https://github.com/omkar-shinde-96k" priview="" title=" Amazon Clone " details="HTML , SCSS , Javascript , React Js , NodeJS , ExpressJS , MongoDB" />
 
 
-          <ProjectCom img="../../images/dgtc.jpg" github="https://github.com/omkar-shinde-96k" priview="https://mangaonseniorcollege.com/" title="DGTC College Website " details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js " />
+          <ProjectCom img="/images/dgtc.jpg" github="https://github.com/omkar-shinde-96k" priview="https://mangaonseniorcollege.com/" title="DGTC College Website " details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js " />
 
-          <ProjectCom img="../../images/adslawcollege.jpg" github="https://github.com/omkar-shinde-96k" priview="https://adslawcollege.com/" title="ADS Law College Website " details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js " />
+          <ProjectCom img="/images/adslawcollege.jpg" github="https://github.com/omkar-shinde-96k" priview="https://adslawcollege.com/" title="ADS Law College Website " details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js " />
 
-          <ProjectCom img="../../images/snsschoo.jpg" github="https://github.com/omkar-shinde-96k" priview="https://mangaonseniorcollege.com/" title="SNS School Website " details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js " />
+          <ProjectCom img="/images/snsschoo.jpg" github="https://github.com/omkar-shinde-96k" priview="https://mangaonseniorcollege.com/" title="SNS School Website " details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js " />
 
-     
-          <ProjectCom img="../../images/mvflex.jpg" github="https://github.com/omkar-shinde-96k" priview="http://downloadmovies.unaux.com/" title="Movie Downloading Site" details="HTML 5, CSS 3, Javascript , Bootstrap , Jquery" />
 
-          <ProjectCom img="../../images/weather.jpg" github="https://github.com/omkar-shinde-96k" priview="https://live-weather-today.herokuapp.com/" title="Live Weather App" details="HTML , SCSS , Javascript , Bootstrap , React Js" />
+          <ProjectCom img="/images/mvflex.jpg" github="https://github.com/omkar-shinde-96k" priview="http://downloadmovies.unaux.com/" title="Movie Downloading Site" details="HTML 5, CSS 3, Javascript , Bootstrap , Jquery" />
 
-          <ProjectCom img="../../images/webwhatsapp.jpg" github="https://github.com/omkar-shinde-96k" priview="http://whatsappweb.unaux.com" title="Web Whatsapp UI" details="HTML 5 , SCSS 3 , Javascript , Bootstrap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " />
+          <ProjectCom img="/images/weather.jpg" github="https://github.com/omkar-shinde-96k" priview="https://live-weather-today.herokuapp.com/" title="Live Weather App" details="HTML , SCSS , Javascript , Bootstrap , React Js" />
 
-          <ProjectCom img="../../images/portfolio.jpg" github="https://github.com/omkar-shinde-96k" priview="" title="Portfolio Website" details="HTML5 , CSS3 , Javascript , Bootstrap , React Js" />
+          <ProjectCom img="/images/webwhatsapp.jpg" github="https://github.com/omkar-shinde-96k" priview="http://whatsappweb.unaux.com" title="Web Whatsapp UI" details="HTML 5 , SCSS 3 , Javascript , Bootstrap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " />
 
-          <ProjectCom img="../../images/calc.jpg" github="https://github.com/omkar-shinde-96k" priview="http://onlinecalculator.unaux.com/" title="Online Calculator" details=" &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HTML 5, CSS 3, Javascript  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " />
+          <ProjectCom img="/images/portfolio.jpg" github="https://github.com/omkar-shinde-96k" priview="" title="Portfolio Website" details="HTML5 , CSS3 , Javascript , Bootstrap , React Js" />
+
+          <ProjectCom img="/images/calc.jpg" github="https://github.com/omkar-shinde-96k" priview="http://onlinecalculator.unaux.com/" title="Online Calculator" details=" &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HTML 5, CSS 3, Javascript  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " />
 
           {/*  
                 </div>
@@ -118,4 +123,3 @@ export default function projects() {
     </>
   )
 }
- 

@@ -1,0 +1,22 @@
+{
+    "name": "Omkar Portfolio",
+    "short_name": "Omkar Portfolio",
+    "icons": [
+      {
+        "src": "./images/omkar.jpg",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+  
+      {
+        "src": "./images/omkar.jpg",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+  }
