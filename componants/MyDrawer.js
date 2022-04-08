@@ -77,7 +77,7 @@ export default function MyDrawer({ Component, pageProps }) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={openDrawer} style={{backgroundImage: `url("https://www.omkarshinde.com/static/media/bg.3f8a23a6.jpg")`}}>
+      <AppBar position="fixed" open={openDrawer} style={{backgroundImage:'url("https://waawfoundation.org/waawblog/wp-content/uploads/2020/12/00l8p1iqqfNP3HRG3TtTgXl-1.1587974089.fit_lim.fit_lim.size_956x.jpg")' , boxShadow:"none" , backgroundPosition: "" ,   backgroundRepeat: "no-repeat" ,  backgroundSize: "cover" , width:"100%" }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -113,7 +113,7 @@ export default function MyDrawer({ Component, pageProps }) {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Home', 'Projects', 'Posts', 'Achivments'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -124,7 +124,7 @@ export default function MyDrawer({ Component, pageProps }) {
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['Contact', 'About', 'Share'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}

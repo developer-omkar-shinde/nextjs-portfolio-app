@@ -1,0 +1,48 @@
+ 
+.HomeMain { 
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box; 
+}
+
+.HomeMain{
+  background-image: url('./bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 91.1vh; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;  
+  filter: contrast(10px);
+  color: white;
+  padding-left: 90px;
+  @media screen and (max-width: 800px) {
+    padding-left: 10px;
+  } 
+    h1{ 
+      color: orange;   
+      font-size: 40px;
+    } 
+    p{
+      max-width: 750px; 
+      @media screen and (max-width: 600px) { 
+        font-size: 15px;
+      }
+    }
+    .SocialIcons a{ 
+      font-size: 30px;
+      margin: 10px 10px  ; 
+      background: #e1e1e1; 
+      border-radius: 50%;
+      padding:10px 12px; 
+      color:black; 
+      text-decoration: none;   
+      box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.72),inset 3px 3px 5px white,inset 3px 3px 5px white,inset 3px 3px 10px white;
+      transition:0.3s;
+        &:hover{
+          transform: scale(1.3); 
+        }
+    } 
+}

@@ -29,17 +29,14 @@ export default function BottomNav({ Component, pageProps }) {
                     value={value}
                     onChange={(event, newValue) => {
                         setValue(newValue);
-                    }}
-
+                    }} 
                     sx={{
                         bgcolor: 'blue',
                         height:"45px",
-                        '& .MuiSvgIcon-root': {
-                            // color: theme => theme.palette.secondary.main
-                            color:"rgba(255, 166, 0, 0.648)"
+                        '& .MuiSvgIcon-root': { 
+                            color:"orange"
                           },
-                          '& .MuiBottomNavigationAction-label': {
-                            // color: theme => theme.palette.secondary.main
+                          '& .MuiBottomNavigationAction-label': { 
                             color:"white"
                           },
                         '& .Mui-selected': {
@@ -48,20 +45,16 @@ export default function BottomNav({ Component, pageProps }) {
                             transition: 'none',
                             fontWeight: 'bold',
                             lineHeight: '20px' ,  
+                            color:"white" 
                           },
-                          '& .MuiSvgIcon-root': {
-                            // color: theme => theme.palette.secondary.main
-                            color:" orange"
-                          },
-                          '& .MuiBottomNavigationAction-label': {
-                            // color: theme => theme.palette.secondary.main
-                            color:" white"
-                          }
+                          '& .MuiSvgIcon-root': { 
+                            color:"red"
+                          }, 
                         }
                       }}
 
                 >
-                    <BottomNavigationAction label="Home" onClick={(e) => RoutePage(e, "/")} icon={<HomeIcon  />} />
+                    <BottomNavigationAction label="HOME" onClick={(e) => RoutePage(e, "/")} icon={<HomeIcon  />} />
                     <BottomNavigationAction onClick={(e) => RoutePage(e, "/projects")} label="MY WORK" icon={<FavoriteIcon  />} />
                     <BottomNavigationAction onClick={(e) => RoutePage(e, "/posts")} label="POSTS" icon={<RestoreIcon  />} />
                 </BottomNavigation>
