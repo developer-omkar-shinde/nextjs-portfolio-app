@@ -12,7 +12,7 @@ export default function posts() {
         <link rel="icon" href="/favicon.ico" />
       </Head> 
       <main className={styles.projects}> 
-         posts
+        <h1>Comming Soon...</h1>
       </main> 
     </div>
   )
