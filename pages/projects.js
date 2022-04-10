@@ -47,7 +47,6 @@ export default function Projects() {
   const OpenModel = (img, status) => {
     SetImgModel({ img, status })
   }
-
   return (
     <>
       <Head>

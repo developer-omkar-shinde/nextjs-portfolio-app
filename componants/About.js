@@ -37,6 +37,7 @@ const About = () => {
                             <Skill id="bootstrap" name="Bootstrap" />
                             <Skill id="jq" name="jQuery" />
                             <Skill id="react" name="React js" />
+                            <Skill id="next" name="Next js" />
                             <Skill id="node" name="Node Js" />
                             <Skill id="mongo" name="MongoDB" />
                         </div> 

@@ -7,7 +7,8 @@ $(document).ready(function () {
     $("#javascript").css("width", "80%");
     $("#jq").css("width", "80%");
     $("#bootstrap").css("width", "90%");
-    $("#react").css("width", "70%");
+    $("#react").css("width", "80%");
+    $("#next").css("width", "65%");
     $("#node").css("width", "70%");
     $("#mongo").css("width", "70%");
     $("#wordpress").css("width", "60%");
