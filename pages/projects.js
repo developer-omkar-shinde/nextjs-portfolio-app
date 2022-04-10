@@ -42,7 +42,7 @@ function ProjectCom(props) {
 
 
 
-export default function projects() {
+export default function Projects() {
   const [ImgModel, SetImgModel] = useState({ img: "/images/portfolio.jpg", status: false })
   const OpenModel = (img, status) => {
     SetImgModel({ img, status })
