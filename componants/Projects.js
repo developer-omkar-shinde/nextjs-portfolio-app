@@ -3,17 +3,7 @@ import React, { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Projects.module.scss';
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route,
-//     NavLink
-// } from "react-router-dom";
-
-// import Top from './Top'
-// import Reactjs from './React'
-// import MERN from './MERN'
-// import CSS from './CSS'
+ 
 
 function ProjectCom(props) {
 
