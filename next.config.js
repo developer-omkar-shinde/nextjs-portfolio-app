@@ -4,14 +4,6 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ['image/webp'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'upload.wikimedia.org',
-        port: '',
-        pathname: '',
-      },
-    ],
   },
 }
 
