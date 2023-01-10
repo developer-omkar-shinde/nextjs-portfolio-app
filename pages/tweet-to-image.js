@@ -3,17 +3,18 @@ import React, { useState, useEffect } from 'react'
 import style from '../styles/tweet-to-image.module.scss';
 import personImg from '../assets/person.jpg'
 import TwitterLogo from '../assets/TwitterLogo.png'
-
+import html2canvas from "html2canvas" 
 const TweetToImage = () => {
- 
-  const [data, setData] = useState([])
 
-  const featchTweet = async () => {
+  const [data, setData] = useState([])
+  const [error,setError] = useState(null)
+
+  const featchTweet = async (id) => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-      "id": "1611034662301995010"
+      "id": id || "1611034662301995010"
     });
 
     var requestOptions = {
@@ -25,7 +26,7 @@ const TweetToImage = () => {
 
     const result = await fetch(`${window.location.origin}/api/hello`, requestOptions)
     const data = await result.json();
-    console.log("data",data); 
+    console.log("data", data);
     setData(data)
   }
 
@@ -33,7 +34,31 @@ const TweetToImage = () => {
     featchTweet()
   }, [])
 
+  function download() {
+    const canvas = document.getElementById("tweetWrapper");
 
+    html2canvas(document.getElementById("tweetWrapper")).then(function (canvas) {			var anchorTag = document.createElement("a");
+        document.body.appendChild(anchorTag);
+        anchorTag.download = "tweet.jpg";
+        anchorTag.href = canvas.toDataURL();
+        anchorTag.target = '_blank';
+        anchorTag.click();
+      });
+  }
+
+  const onInputChange=(e)=>{
+    setError(null)
+     let link = e.target.value;
+     if(!(link).trim()) return
+     let a = link.split("/");
+     let b = a[a.length - 1]
+     if(b?.length === 19){
+      featchTweet(b)
+      return 
+    }
+    setError("Invalid Tweet Link")
+    
+  }
 
 
   return (
@@ -59,42 +84,42 @@ const TweetToImage = () => {
               </div> */}
               <h1>Convert tweets to image</h1>
               <p>
-                Create perfect screenshots from your tweets, paste the tweet
-                URL, customize your screenshot and share it wherever you want.
+              Create perfect screenshots from your tweets, paste the tweet URL, customize your screenshot and share it wherever you want.
               </p>
               <input
-                placeholder="Paste tweet URL and hit enter"
+                placeholder="https://twitter.com/SpaceX/status/1612698343691673601"
                 class={style.input}
                 type="text"
+                onChange={onInputChange}
               />
+              <span>{error}</span> 
             </div>
           </section>
         </div>
       </div>
 
 
-
       <div className={style.editorWraper}>
         <div className={style.container}>
           <div className={style.editor}>
-            <div className={style.tweetWrapper}>
+            <div id="tweetWrapper" className={style.tweetWrapper}>
               <div className={style.tweet}>
                 <div className={style.tweetUserInfo}>
-
                   <div className={style.profilePic}>
-                    <Image src={personImg}   alt="omkar" width="50" height="50" />
+                    <img src={data?.user?.profile_image_url_https} alt="" width="50" height="50" />
                   </div>
-                  
                   <div className={style.userInfo}>
-                    <h3>Omkar Shinde</h3>
-                    <p>@omkar_shinde_01</p>
+                    <h3>{data?.user?.name}</h3>
+                    <p>@{data?.user?.screen_name}</p>
                   </div>
-                  
-                  <div className={style.twitterIcon}> 
-                    <Image src={TwitterLogo} alt="omkar" width="30" height="30" />
+                  <div className={style.twitterIcon}>
+                    <Image src={TwitterLogo} alt="" width="30" height="30" />
                   </div>
-                  
                 </div>
+                <div className={style.tweetText}>
+                  {data?.text}
+                </div>
+
               </div>
             </div>
             <div className={style.tools}>
@@ -110,13 +135,13 @@ const TweetToImage = () => {
                 </div>
               </div>
               <div className={style.showLikes}>
-                <input className={style.likesCheck} type="checkbox"/>
+                <input className={style.likesCheck} type="checkbox" />
                 <div className={style.likesInfo}>
-                  <h3>Show like and retweet count</h3> 
-                  <p>Show or hide numbers for likes, RTs etc.</p> 
+                  <h3>Show like and retweet count</h3>
+                  <p>Show or hide numbers for likes, RTs etc.</p>
                 </div>
               </div>
-              <button className={style.saveButton}>Save Image</button>
+              <button onClick={download} className={style.saveButton}>Download Image</button>
             </div>
           </div>
         </div>
