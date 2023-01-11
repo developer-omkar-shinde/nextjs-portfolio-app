@@ -72,128 +72,146 @@
 }
 
 .box span {
-  color : red;
+  color: red;
 }
 
-.editorWraper {
-  .editor {
-    display: flex;
+.editor {
+  display: flex;
+  width: 100%;
+  height: 700px;
+
+  .tweetWrapper {
     width: 100%;
-    height: 700px;
+    background: rgb(54, 22, 162);
+    background: linear-gradient(90deg, rgba(54, 22, 162, 0.7357317927170868) 0%, rgba(196, 29, 253, 0.7161239495798319) 70%);
+    padding: 0 10px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px !important;
 
-    .tweetWrapper {
-      background: rgb(54, 22, 162);
-      background: linear-gradient(90deg, rgba(54, 22, 162, 0.7357317927170868) 0%, rgba(196, 29, 253, 0.7161239495798319) 70%);
-      padding: 0 10px;
-      display: grid;
-      place-items: center;
+    .tweet {
+      background-color: #fff;
+      max-width: 600px;
+      padding: 30px;
+      border-radius: 20px;
 
-      .tweet {
-        background-color: #fff;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 20px;
-
-        .tweetUserInfo {
+      .tweetUserInfo {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        flex-direction: row;
+        justify-content: space-between;
+        .profilePicWrapper {
           display: flex;
-          width: 100%;
-          height: 50px;
-          flex-direction: row;
-
           .profilePic {
             height: 50px !important;
             width: 50px !important;
             margin-right: 15px;
+
             img {
-            border-radius: 50%;
+              border-radius: 50%;
             }
           }
-
           .userInfo {
             display: flex;
             flex-direction: column;
           }
-
-          .twitterIcon {
-            margin-left: 250px;
-            display: grid;
-            place-items: center;
-          }
         }
+        .twitterIcon {
+          display: grid;
+          place-items: center;
+        }
+      }
 
-        .tweetText {
-          padding: 50px 50px 50px 0;
-          line-height: 1.75rem;
-          font-size: 1.25rem;
+      .tweetText {
+        padding: 30px 50px 5px 0;
+        line-height: 1.75rem;
+        font-size: 1.25rem;
+      }
+
+      .tweetTime {
+        font-size: 13px;
+        opacity: 0.5;
+        color: gray;
+        line-height: 20px;
+        margin-bottom: 20px;
+      }
+
+      .tweetLikesRetweets {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        span {
+          margin-right: 30px;
+          display: flex;
+          align-items: center;
+          margin-right: 60px;
+        }
+      }
+    }
+  }
+
+
+  .tools {
+    // border: 1px solid black;
+    min-width: 400px;
+    padding: 20px;
+
+    .backgroundOptions {
+      margin-bottom: 20px;
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      .backgroundOptionsList {
+        display: flex;
+        justify-content: space-evenly;
+
+        span {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          background-color: blue;
         }
       }
     }
 
-    .tweetWrapper {
-      border: 1px solid black;
-      width: 100%;
-    }
+    .showLikes {
+      display: flex;
+      margin-bottom: 20px;
 
-    .tools {
-      border: 1px solid black;
-      // min-width: 40px;
-      padding: 20px;
+      .likesCheck {
+        width: 30px;
+        margin-right: 20px;
+      }
 
-      .backgroundOptions {
-        margin-bottom: 20px;
+      .likesInfo {
+        h3 {
+          font-size: 15px;
+          font-weight: 700;
+        }
 
         p {
-          margin-bottom: 10px;
-        }
-
-        .backgroundOptionsList {
-          display: flex;
-
-          span {
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            background-color: blue;
-            margin-right: 13px;
-          }
+          font-size: 16px;
         }
       }
-
-      .showLikes {
-        display: flex;
-        margin-bottom: 20px;
-
-        .likesCheck {
-          width: 30px;
-          margin-right: 20px;
-        }
-
-        .likesInfo {
-          h3 {
-            font-size: 15px;
-            font-weight: 700;
-          }
-
-          p {
-            font-size: 16px;
-          }
-        }
-      }
-
-      .saveButton {
-        width: 95%;
-        height: 40px;
-        background-color: black;
-        color: white;
-        outline: none;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-
-
     }
+
+    .saveButton {
+      width: 95%;
+      height: 40px;
+      background-color: black;
+      color: white;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+
+
   }
 }
 
@@ -230,19 +248,19 @@ article .login .box2 button {
   cursor: not-allowed;
 }
 
-aside .app {
+.app {
   width: 100%;
   /* height: 300px; */
 }
 
-aside .app .box3 {
-  width: 1000px;
+.app .box3 {
+  // width: 1000px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 125px;
 }
 
-aside .app .box3 h2 {
+.app .box3 h2 {
   margin-bottom: 47px;
   text-align: center;
   font-size: 3rem;
@@ -252,15 +270,15 @@ aside .app .box3 h2 {
     'Helvetica Neue', sans-serif;
 }
 
-aside .app .box3 .boxchild {
+.app .box3 .boxchild {
   display: flex;
-  width: 960px;
+  // width: 960px;
   gap: 80px;
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
 
-aside .app .box3 .boxchild-1 {
+.app .box3 .boxchild1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -271,13 +289,13 @@ aside .app .box3 .boxchild-1 {
   background-color: rgb(26, 200, 110);
 }
 
-aside .app .box3 .boxchild .sub-box h3 {
+.app .box3 .boxchild .subBox h3 {
   font-weight: 600;
   margin-bottom: 0.5rem;
   font-size: inherit;
 }
 
-aside .app .box3 .boxchild .sub-box p {
+.app .box3 .boxchild .subBox p {
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   --tw-text-opacity: 1;
@@ -286,7 +304,7 @@ aside .app .box3 .boxchild .sub-box p {
 
 }
 
-aside .app .box3 .boxchild-2 {
+.app .box3 .boxchild-2 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -297,7 +315,7 @@ aside .app .box3 .boxchild-2 {
   background-color: rgb(26, 200, 110);
 }
 
-aside .app .box3 .boxchild-3 {
+.app .box3 .boxchild-3 {
   display: flex;
   justify-content: center;
   align-items: center;

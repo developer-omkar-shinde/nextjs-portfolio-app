@@ -3,11 +3,14 @@ import React, { useState, useEffect } from 'react'
 import style from '../styles/tweet-to-image.module.scss';
 import personImg from '../assets/person.jpg'
 import TwitterLogo from '../assets/TwitterLogo.png'
-import html2canvas from "html2canvas" 
+import html2canvas from "html2canvas"
+import { FcLike } from "react-icons/fc";
+import { FiRepeat } from "react-icons/fi";
+
 const TweetToImage = () => {
 
   const [data, setData] = useState([])
-  const [error,setError] = useState(null)
+  const [error, setError] = useState(null)
 
   const featchTweet = async (id) => {
     var myHeaders = new Headers();
@@ -37,27 +40,28 @@ const TweetToImage = () => {
   function download() {
     const canvas = document.getElementById("tweetWrapper");
 
-    html2canvas(document.getElementById("tweetWrapper")).then(function (canvas) {			var anchorTag = document.createElement("a");
-        document.body.appendChild(anchorTag);
-        anchorTag.download = "tweet.jpg";
-        anchorTag.href = canvas.toDataURL();
-        anchorTag.target = '_blank';
-        anchorTag.click();
-      });
+    html2canvas(document.getElementById("tweetWrapper")).then(function (canvas) {
+      var anchorTag = document.createElement("a");
+      document.body.appendChild(anchorTag);
+      anchorTag.download = "tweet.jpg";
+      anchorTag.href = canvas.toDataURL();
+      anchorTag.target = '_blank';
+      anchorTag.click();
+    });
   }
 
-  const onInputChange=(e)=>{
+  const onInputChange = (e) => {
     setError(null)
-     let link = e.target.value;
-     if(!(link).trim()) return
-     let a = link.split("/");
-     let b = a[a.length - 1]
-     if(b?.length === 19){
+    let link = e.target.value;
+    if (!(link).trim()) return
+    let a = link.split("/");
+    let b = a[a.length - 1]
+    if (b?.length === 19) {
       featchTweet(b)
-      return 
+      return
     }
     setError("Invalid Tweet Link")
-    
+
   }
 
 
@@ -84,7 +88,7 @@ const TweetToImage = () => {
               </div> */}
               <h1>Convert tweets to image</h1>
               <p>
-              Create perfect screenshots from your tweets, paste the tweet URL, customize your screenshot and share it wherever you want.
+                Create perfect screenshots from your tweets, paste the tweet URL, customize your screenshot and share it wherever you want.
               </p>
               <input
                 placeholder="https://twitter.com/SpaceX/status/1612698343691673601"
@@ -92,19 +96,19 @@ const TweetToImage = () => {
                 type="text"
                 onChange={onInputChange}
               />
-              <span>{error}</span> 
+              <span>{error}</span>
             </div>
           </section>
         </div>
       </div>
 
 
-      <div className={style.editorWraper}>
-        <div className={style.container}>
-          <div className={style.editor}>
-            <div id="tweetWrapper" className={style.tweetWrapper}>
-              <div className={style.tweet}>
-                <div className={style.tweetUserInfo}>
+      <div className={style.container}>
+        <div className={style.editor}>
+          <div id="tweetWrapper" className={style.tweetWrapper}>
+            <div className={style.tweet}>
+              <div className={style.tweetUserInfo}>
+                <div className={style.profilePicWrapper}>
                   <div className={style.profilePic}>
                     <img src={data?.user?.profile_image_url_https} alt="" width="50" height="50" />
                   </div>
@@ -112,37 +116,45 @@ const TweetToImage = () => {
                     <h3>{data?.user?.name}</h3>
                     <p>@{data?.user?.screen_name}</p>
                   </div>
-                  <div className={style.twitterIcon}>
-                    <Image src={TwitterLogo} alt="" width="30" height="30" />
-                  </div>
                 </div>
-                <div className={style.tweetText}>
-                  {data?.text}
+                <div className={style.twitterIcon}>
+                  <Image src={TwitterLogo} alt="" width="30" height="30" />
                 </div>
+              </div>
+              <div className={style.tweetText}>
+                {data?.text}
+              </div>
+              <p className={style.tweetTime}>{data?.created_at}</p>
+              <div className={style.tweetLikesRetweets}>
+                <span>
+                  <FcLike size="20" /> &nbsp;&nbsp; {data?.favorite_count}
+                </span>
+                <span>
+                  <FiRepeat size="20" color="green" />  &nbsp;&nbsp; {data?.retweet_count}
+                </span>
+              </div>
 
+            </div>
+          </div>
+          <div className={style.tools}>
+            <div className={style.backgroundOptions}>
+              <p>Background</p>
+              <div className={style.backgroundOptionsList}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
             </div>
-            <div className={style.tools}>
-              <div className={style.backgroundOptions}>
-                <p>Background</p>
-                <div className={style.backgroundOptionsList}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
+            <div className={style.showLikes}>
+              <input className={style.likesCheck} type="checkbox" />
+              <div className={style.likesInfo}>
+                <h3>Show like and retweet count</h3>
+                <p>Show or hide numbers for likes, RTs etc.</p>
               </div>
-              <div className={style.showLikes}>
-                <input className={style.likesCheck} type="checkbox" />
-                <div className={style.likesInfo}>
-                  <h3>Show like and retweet count</h3>
-                  <p>Show or hide numbers for likes, RTs etc.</p>
-                </div>
-              </div>
-              <button onClick={download} className={style.saveButton}>Download Image</button>
             </div>
+            <button onClick={download} className={style.saveButton}>Download Image</button>
           </div>
         </div>
       </div>
@@ -161,13 +173,13 @@ const TweetToImage = () => {
         </div>
       </article>
 
-      <aside>
+      <div class={style.container}>
         <div class={style.app}>
           <div class={style.box3}>
             <h2>How to use Tweet to Image App</h2>
             <div class={style.boxchild}>
-              <div class=" sub-box" >
-                <div class="boxchild-1">
+              <div class={style.subBox} >
+                <div class={style.boxchild1}>
                   <div >1</div>
                 </div>
                 <h3>Enter tweet link</h3>
@@ -178,8 +190,8 @@ const TweetToImage = () => {
                 </p>
               </div>
 
-              <div class="sub-box">
-                <div class="boxchild-2">
+              <div class={style.subBox}>
+                <div class={style.boxchild2}>
                   <div>2</div>
                 </div>
                 <h3>Customize the image</h3>
@@ -190,8 +202,8 @@ const TweetToImage = () => {
                 </p>
               </div>
 
-              <div class="sub-box">
-                <div class="boxchild-3">
+              <div class={style.subBox}>
+                <div class={style.boxchild3}>
                   <div>3</div>
                 </div>
 
@@ -207,7 +219,7 @@ const TweetToImage = () => {
             </div>
           </div>
         </div>
-      </aside>
+      </div>
 
       <footer className={style.footer}>
         <div class={style.container}>
