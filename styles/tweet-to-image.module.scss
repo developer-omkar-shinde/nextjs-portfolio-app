@@ -16,10 +16,10 @@
 /* header start   */
 
 .header {
-  height: 50px;
+  height: 60px;
   width: 100%;
   box-shadow: 1px 0px 10px rgba(128, 128, 128, 0.782);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: 700;
 }
 
@@ -87,8 +87,6 @@
     padding: 0 10px;
     display: grid;
     place-items: center;
-    border-radius: 10px !important;
-
     .tweet {
       background-color: #fff;
       max-width: 600px;
@@ -159,10 +157,11 @@
     padding: 20px;
 
     .backgroundOptions {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
 
       p {
         margin-bottom: 10px;
+        font-weight: 500;
       }
 
       .backgroundOptionsList {
@@ -180,7 +179,7 @@
 
     .showLikes {
       display: flex;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
 
       .likesCheck {
         width: 30px;
