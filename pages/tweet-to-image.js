@@ -6,6 +6,7 @@ import TwitterLogo from '../assets/TwitterLogo.png'
 import html2canvas from "html2canvas"
 import { FcLike } from "react-icons/fc";
 import { FiRepeat } from "react-icons/fi";
+import Head from 'next/head';
 
 const TweetToImage = () => {
 
@@ -66,7 +67,17 @@ const TweetToImage = () => {
 
 
   return (
+    <> 
+      <Head>
+      
+      <title>Tweet to Image Converter Online</title>
+       <meta name='keywords' content='tweet to image, tweet to image online, tweet to image app, tweet to image generator, tweet to image without watermark, tweet to image free, convert tweets to image, tweet 2 image, how to take picture of a tweet, fake tweet photo editor' />
+       <meta name='description' content='Online Tweet to Image Converter is a free tool for converting tweets into images and get tweet screenshots. You can add customized backgrounds such as gradients, solid colors or images and generate images from tweets. You can use light or dark theme. Also, language can be set before capturing tweets.' />
+      </Head>
     <div class={style.main}>
+
+
+
       {/* <!-- header --> */}
       <header className={style.header}>
         <div class={style.container}>
@@ -229,6 +240,7 @@ const TweetToImage = () => {
         </div>
       </footer>
     </div>
+    </>
   )
 }
 
