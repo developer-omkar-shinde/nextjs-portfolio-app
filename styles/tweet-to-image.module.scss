@@ -1,3 +1,7 @@
+.paraFontSize{
+  font-size: 1.5rem;
+}
+
 .container {
   max-width: 1300px;
   height: 100%;
@@ -79,8 +83,9 @@
   display: flex;
   flex-direction: row;
   width: 100%;
+
   @media screen and (max-width: 900px) {
-     flex-direction: column; 
+    flex-direction: column;
   }
 
   .tweetWrapper {
@@ -89,13 +94,19 @@
     display: grid;
     place-items: center;
     border-radius: 5px;
-    min-height:800px ;
+    min-height: 800px;
+    @media screen and (max-width: 900px) {
+      padding: 0px;
+    }
 
     .tweet {
       background: white;
       padding: 30px;
       border-radius: 20px;
       transition: 0.5s;
+      @media screen and (max-width: 900px) {
+        padding: 20px;
+      }
 
       .tweetUserInfo {
         display: flex;
@@ -105,9 +116,11 @@
         justify-content: space-between;
         background: white;
         z-index: 999;
+        margin-bottom: 15px;
         .profilePicWrapper {
           display: flex;
           background: white;
+
           .profilePic {
             height: 50px !important;
             width: 50px !important;
@@ -122,21 +135,29 @@
             display: flex;
             flex-direction: column;
             background-color: white;
+
+            h3 {
+              font-size: 1.4rem;
+              margin-top: 8px;
+            }
+
+            p {
+              font-size: 1.3rem;
+            }
           }
         }
 
         .twitterIcon {
           display: grid;
           place-items: center;
-          
+
         }
       }
 
       .tweetText {
-        padding: 20px 50px 5px 0;
-        line-height: 1.75rem;
-        font-size: 1.25rem;
-        background: white; 
+        line-height: 3rem;
+        font-size: 1rem;
+        background: white;
       }
 
       .tweetTime {
@@ -153,6 +174,9 @@
         margin-bottom: 10px;
         margin-top: 20px;
         background-color: white;
+        @media screen and (max-width: 900px) {
+          margin-bottom: 0;
+        }
         span {
           margin-right: 30px;
           display: flex;
@@ -224,7 +248,8 @@
           font-weight: 700;
           opacity: 0.7;
 
-        } 
+        }
+
         p {
           font-size: 16px;
         }
@@ -236,7 +261,8 @@
       display: flex;
       align-items: center;
       margin-bottom: 30px;
-      font-weight: 500; 
+      font-weight: 500;
+
       span {
         margin-right: 10px;
         width: auto;
@@ -245,34 +271,39 @@
       }
 
       .tweetSizeRange {
-      width: 100%;
+        width: 100%;
       }
     }
 
-    .editTweetText{
+    .editTweetText {
       display: flex;
       flex-direction: column;
       width: 100%;
       margin-bottom: 20px;
-      gap:10px;
-      span{
+      gap: 10px;
+
+      span {
         font-weight: 500;
         opacity: 0.7;
       }
-      *{
-      width: 100%;
+
+      textarea {
+        padding: 10px;
+        width: 100%;
+        border-radius: 4px;
       }
     }
 
     .saveButton {
-      width: 95%;
+      width: 100%;
       height: 40px;
-      background-color: black;
+      background-color: blue;
       color: white;
       outline: none;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      font-weight: 500;
     }
 
   }
@@ -306,6 +337,10 @@
   gap: 80px;
   font-size: 1.125rem;
   line-height: 1.75rem;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
 }
 
 .app .box3 .boxchild1 {

@@ -29,13 +29,21 @@ const TweetToImage = () => {
   const [editorBackgroud, setEditorBackgroud] = useState(backgroundColorOptions[0].backgroundColor)
   const [tweetShadow, setTweetShadow] = useState(25);
   const [tweetFont, setTweetFont] = useState(20);
+  
+
+useEffect(() => {
+ if(window.innerWidth < 900){
+  setTweetWidth(95);
+  setTweetSize(0.9)
+ }
+},[])
 
   const featchTweet = async (id) => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
-      "id": id || "1611034662301995010"
+      "id": id || "1587129795732770824"
     });
 
     var requestOptions = {
@@ -113,7 +121,7 @@ const TweetToImage = () => {
             <section>
               <div class={style.box}>
                 <h1>Convert tweets to image</h1>
-                <p>
+                <p className={style.paraFontSize}>
                   Paste the tweet URL, customize your screenshot and share it wherever you want.
                 </p>
                 <input
@@ -168,7 +176,7 @@ const TweetToImage = () => {
             </div>
             <div className={style.tools}>
               <div className={style.backgroundOptions}>
-                <p>Background:</p>
+                <p className={style.paraFontSize}>Background:</p>
                 <div className={style.backgroundOptionsList}>
                   {backgroundColorOptions.map((item) => {
                     return <span key={item?.backgroundColor} style={{ background: item.backgroundColor }} onClick={() => setEditorBackgroud(item.backgroundColor)}>   </span>
@@ -177,7 +185,7 @@ const TweetToImage = () => {
               </div>
 
               <div className={style.BackgroudPicker}>
-                <span>Costom background: </span>
+                <span className={style.paraFontSize}>Costom background: </span>
                 <input type="color" value={editorBackgroud} onChange={(e) => setEditorBackgroud(e.target.value)} />
               </div>
 
@@ -198,27 +206,27 @@ const TweetToImage = () => {
 
 
               <div className={style.tweetSize}>
-                <span>Tweet Size: </span>
+                <span className={style.paraFontSize}>Tweet Size: </span>
                 <input type="range" id="vol" value={tweetSize} step="0.1" onChange={tweetSizeRangeHandler} className={style.tweetSizeRange} name="vol" min="0.5" max="1.3" />
               </div>
 
               <div className={style.tweetSize}>
-                <span>Tweet width: </span>
+                <span className={style.paraFontSize}>Tweet width: </span>
                 <input type="range" id="vol" value={tweetWidth} step="10" onChange={tweetWidthRangeHandler} className={style.tweetSizeRange} name="vol" min="50" max="100" />
               </div>
 
               <div className={style.tweetSize}>
-                <span>Shadow: </span>
+                <span className={style.paraFontSize}>Shadow: </span>
                 <input type="range" id="vol" value={tweetShadow} step="1" onChange={(e) => setTweetShadow(e.target.value)} className={style.tweetSizeRange} name="shadow" min="5" max="75" />
               </div>
 
               <div className={style.tweetSize}>
-                <span>Font Size: </span>
+                <span className={style.paraFontSize}> Font Size: </span>
                 <input type="range" id="vol" value={tweetFont} step="0.5" onChange={(e) => setTweetFont(e.target.value)} className={style.tweetSizeRange} name="tweet font" min="10" max="25" />
               </div>
 
               <div className={style.editTweetText}>
-                <span>Tweet Text:</span>
+                <span className={style.paraFontSize}>Tweet Text:</span>
                 <textarea value={data.text} onChange={(e)=>setData({...data, text : e.target.value})} name="w3review" rows="5" cols="50"/>
               </div>
 
@@ -245,7 +253,7 @@ const TweetToImage = () => {
                 </div>
 
                 <div class={style.subBox}>
-                  <div class={style.boxchild2}>
+                  <div class={style.boxchild1}>
                     <div>2</div>
                   </div>
                   <h3>Customize the image</h3>
@@ -257,7 +265,7 @@ const TweetToImage = () => {
                 </div>
 
                 <div class={style.subBox}>
-                  <div class={style.boxchild3}>
+                  <div class={style.boxchild1}>
                     <div>3</div>
                   </div>
 
