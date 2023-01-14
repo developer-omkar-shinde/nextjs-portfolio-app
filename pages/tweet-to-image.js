@@ -20,7 +20,7 @@ const backgroundColorOptions = [
 
 const TweetToImage = () => {
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({ text: "If I had a dollar for every time someone asked me if Trump is coming back on this platform, Twitter would be minting money!" });
   const [error, setError] = useState(null);
   const [showLikes, setShowLikes] = useState(true)
   const [showTimeDate, setShowTimeDate] = useState(true)
@@ -29,14 +29,14 @@ const TweetToImage = () => {
   const [editorBackgroud, setEditorBackgroud] = useState(backgroundColorOptions[0].backgroundColor)
   const [tweetShadow, setTweetShadow] = useState(25);
   const [tweetFont, setTweetFont] = useState(20);
-  
 
-useEffect(() => {
- if(window.innerWidth < 900){
-  setTweetWidth(95);
-  setTweetSize(0.9)
- }
-},[])
+
+  useEffect(() => {
+    if (window.innerWidth < 900) {
+      setTweetWidth(95);
+      setTweetSize(0.9)
+    }
+  }, [])
 
   const featchTweet = async (id) => {
     var myHeaders = new Headers();
@@ -107,20 +107,20 @@ useEffect(() => {
 
 
         {/* <!-- header --> */}
-        <header className={style.header}>
+        {/* <header className={style.header}>
           <div class={style.container}>
             <div class={style.wrapper}>
               <div class={style.logo}>Tweet To Image</div>
             </div>
           </div>
-        </header>
+        </header> */}
         {/* <!-- header end --> */}
 
         <div class={style.pagebody}>
           <div class={style.container}>
             <section>
               <div class={style.box}>
-                <h1>Convert tweets to image</h1>
+                <h1>Convert tweet to image</h1>
                 <p className={style.paraFontSize}>
                   Paste the tweet URL, customize your screenshot and share it wherever you want.
                 </p>
@@ -175,6 +175,9 @@ useEffect(() => {
               </div>
             </div>
             <div className={style.tools}>
+
+              <button onClick={download} className={`${style.saveButton} ${style.downloadBtn}`}>Download Image</button>
+
               <div className={style.backgroundOptions}>
                 <p className={style.paraFontSize}>Background:</p>
                 <div className={style.backgroundOptionsList}>
@@ -203,8 +206,6 @@ useEffect(() => {
                 </div>
               </div>
 
-
-
               <div className={style.tweetSize}>
                 <span className={style.paraFontSize}>Tweet Size: </span>
                 <input type="range" id="vol" value={tweetSize} step="0.1" onChange={tweetSizeRangeHandler} className={style.tweetSizeRange} name="vol" min="0.5" max="1.3" />
@@ -227,7 +228,7 @@ useEffect(() => {
 
               <div className={style.editTweetText}>
                 <span className={style.paraFontSize}>Tweet Text:</span>
-                <textarea value={data.text} onChange={(e)=>setData({...data, text : e.target.value})} name="w3review" rows="5" cols="50"/>
+                <textarea value={data.text} onChange={(e) => setData({ ...data, text: e.target.value })} name="w3review" rows="5" cols="50" />
               </div>
 
               <button onClick={download} className={style.saveButton}>Download Image</button>
@@ -286,7 +287,7 @@ useEffect(() => {
         <footer className={style.footer}>
           <div class={style.container}>
             <div class={style.wrapper}>
-              <p>Design and developed by omkar and shrikant @2023</p>
+              <p className={style.paraFontSize}>Design and developed by <a target="_blank" href="http://www.omkarshinde.com" rel="noreferrer">omkar shinde</a></p>
             </div>
           </div>
         </footer>
