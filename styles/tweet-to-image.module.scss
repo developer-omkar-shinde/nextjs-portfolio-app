@@ -2,7 +2,7 @@
   max-width: 1300px;
   height: 100%;
   margin: 0 auto;
-  padding: 15px;
+  padding: 20px;
 }
 
 .wrapper {
@@ -16,17 +16,20 @@
 /* header start   */
 
 .header {
-  height: 60px;
+  height: 50px;
   width: 100%;
   box-shadow: 1px 0px 10px rgba(128, 128, 128, 0.782);
-  margin-bottom: 10px;
   font-weight: 700;
+
+  .container {
+    padding: 0 10px;
+  }
 }
 
 .header .logo {
   color: blue;
   margin: auto 0;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 /* ------ header end  ------ */
@@ -41,24 +44,18 @@
 }
 
 .pagebody section .box {
-  width: 500px;
-}
-
-.box .icon {
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: center;
+  max-width: 500px;
 }
 
 .box h1 {
   font-size: 25px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
 }
 
 .box p {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   padding: 0 40px;
@@ -69,6 +66,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 10px;
 }
 
 .box span {
@@ -77,21 +77,25 @@
 
 .editor {
   display: flex;
+  flex-direction: row;
   width: 100%;
-  height: 700px;
+  @media screen and (max-width: 900px) {
+     flex-direction: column; 
+  }
 
   .tweetWrapper {
     width: 100%;
-    background: rgb(54, 22, 162);
-    background: linear-gradient(90deg, rgba(54, 22, 162, 0.7357317927170868) 0%, rgba(196, 29, 253, 0.7161239495798319) 70%);
-    padding: 0 10px;
+    padding: 10px;
     display: grid;
     place-items: center;
+    border-radius: 5px;
+    min-height:800px ;
+
     .tweet {
-      background-color: #fff;
-      max-width: 600px;
+      background: white;
       padding: 30px;
       border-radius: 20px;
+      transition: 0.5s;
 
       .tweetUserInfo {
         display: flex;
@@ -99,8 +103,11 @@
         height: 50px;
         flex-direction: row;
         justify-content: space-between;
+        background: white;
+        z-index: 999;
         .profilePicWrapper {
           display: flex;
+          background: white;
           .profilePic {
             height: 50px !important;
             width: 50px !important;
@@ -110,36 +117,42 @@
               border-radius: 50%;
             }
           }
+
           .userInfo {
             display: flex;
             flex-direction: column;
+            background-color: white;
           }
         }
+
         .twitterIcon {
           display: grid;
           place-items: center;
+          
         }
       }
 
       .tweetText {
-        padding: 30px 50px 5px 0;
+        padding: 20px 50px 5px 0;
         line-height: 1.75rem;
         font-size: 1.25rem;
+        background: white; 
       }
 
       .tweetTime {
         font-size: 13px;
-        opacity: 0.5;
+        opacity: 0.7s;
         color: gray;
         line-height: 20px;
-        margin-bottom: 20px;
+        background-color: white;
       }
 
       .tweetLikesRetweets {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
-
+        margin-top: 20px;
+        background-color: white;
         span {
           margin-right: 30px;
           display: flex;
@@ -150,18 +163,18 @@
     }
   }
 
-
   .tools {
     // border: 1px solid black;
     min-width: 400px;
     padding: 20px;
 
     .backgroundOptions {
-      margin-bottom: 30px;
+      margin-bottom: 20px;
 
       p {
         margin-bottom: 10px;
         font-weight: 500;
+        opacity: 0.6;
       }
 
       .backgroundOptionsList {
@@ -173,28 +186,81 @@
           width: 40px;
           border-radius: 50%;
           background-color: blue;
+          cursor: pointer;
         }
       }
     }
+
+    .BackgroudPicker {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-weight: 500;
+
+      span {
+        margin-right: 10px;
+        opacity: 0.7;
+      }
+
+      input {
+        height: 35px;
+        width: 50px;
+      }
+    }
+
 
     .showLikes {
       display: flex;
       margin-bottom: 30px;
 
       .likesCheck {
-        width: 30px;
+        width: 20px;
         margin-right: 20px;
       }
 
       .likesInfo {
-        h3 {
+        .label {
           font-size: 15px;
           font-weight: 700;
-        }
+          opacity: 0.7;
 
+        } 
         p {
           font-size: 16px;
         }
+      }
+    }
+
+
+    .tweetSize {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      font-weight: 500; 
+      span {
+        margin-right: 10px;
+        width: auto;
+        white-space: nowrap;
+        opacity: 0.7;
+      }
+
+      .tweetSizeRange {
+      width: 100%;
+      }
+    }
+
+    .editTweetText{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 20px;
+      gap:10px;
+      span{
+        font-weight: 500;
+        opacity: 0.7;
+      }
+      *{
+      width: 100%;
       }
     }
 
@@ -209,42 +275,7 @@
       cursor: pointer;
     }
 
-
-
   }
-}
-
-
-
-
-
-article .login {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-article .login .box2 {
-  width: 500px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-article .login .box2 p {
-  padding: 0px 40px;
-  margin-bottom: 30px;
-}
-
-article .login .box2 button {
-  color: white;
-  font-size: 20px;
-  padding: 8px 24px;
-  background-color: rgb(29 161 242);
-  border-radius: 0.75rem;
-  cursor: not-allowed;
 }
 
 .app {
