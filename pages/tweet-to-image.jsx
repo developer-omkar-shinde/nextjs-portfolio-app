@@ -30,13 +30,13 @@ function numFormatter(num) {
 const TweetToImage = () => {
 
   const [tweetData, setTweetData] = useState({
-    name: "",
-    username: "",
-    profilePic: "",
-    text: "",
-    likes: "",
-    reTweets: "",
-    timeStamp: ""
+    name: "Elon Musk",
+    username: "elonmusk",
+    profilePic: "https://pbs.twimg.com/profile_images/1590968738358079488/IY9Gx6Ok_normal.jpg",
+    text: "If I fhad a dollar for every time someone asked me if Trump is coming back on this platform, Twitter would be minting money!",
+    likes: "992343",
+    reTweets: "343432",
+    timeStamp: "Mon Oct 31 17:10:05 2022"
   });
   const [error, setError] = useState(null);
   const [showLikes, setShowLikes] = useState(true)
@@ -46,8 +46,6 @@ const TweetToImage = () => {
   const [editorBackgroud, setEditorBackgroud] = useState(backgroundColorOptions[0].backgroundColor)
   const [tweetShadow, setTweetShadow] = useState(25);
   const [tweetFont, setTweetFont] = useState(20);
-
-  console.log("tweetData", tweetData);
 
   useEffect(() => {
     if (window.innerWidth < 900) {
@@ -141,7 +139,7 @@ const TweetToImage = () => {
           <div class={style.container}>
             <section>
               <div class={style.box}>
-                <h1>Convert tweet to image</h1>
+                <h1>Free tweet to image converter</h1>
                 <p className={style.paraFontSize}>
                   Paste the tweet URL, customize your screenshot and share it wherever you want.
                 </p>
@@ -160,7 +158,8 @@ const TweetToImage = () => {
         <div className={style.container}>
           <div className={style.editor}>
             <div id="tweetWrapper" className={style.tweetWrapper} style={{ background: editorBackgroud }}>
-              <div className={style.tweet} style={{ transform: `scale(${tweetSize})`, width: `${tweetWidth}%`, boxShadow: `3px 3px ${tweetShadow}px gray` }}>
+              <div className={style.tweet} style={{ transform: `scale(${tweetSize})`, width: `${tweetWidth}%`}}>
+              {/* <div className={style.tweet} style={{ transform: `scale(${tweetSize})`, width: `${tweetWidth}%`, boxShadow: `3px 3px ${tweetShadow}px gray` }}> */}
                 <div className={style.tweetUserInfo}>
                   <div className={style.profilePicWrapper}>
                     <div className={style.profilePic}>

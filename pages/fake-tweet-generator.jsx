@@ -153,7 +153,8 @@ const FakeTweetGenerator = () => {
         <div className={style.container}>
           <div className={style.editor}>
             <div id="tweetWrapper" className={style.tweetWrapper} style={{ background: editorBackgroud }}>
-              <div className={style.tweet} style={{ transform: `scale(${tweetSize})`, width: `${tweetWidth}%`, boxShadow: `3px 3px ${tweetShadow}px gray` }}>
+              <div className={style.tweet} style={{ transform: `scale(${tweetSize})`, width: `${tweetWidth}%`}}>
+              {/* <div className={style.tweet} style={{ transform: `scale(${tweetSize})`, width: `${tweetWidth}%`, boxShadow: `3px 3px ${tweetShadow}px gray` }}> */}
                 <div className={style.tweetUserInfo}>
                   <div className={style.profilePicWrapper}>
                     <div className={style.profilePic}>
