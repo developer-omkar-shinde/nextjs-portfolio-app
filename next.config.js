@@ -1,10 +1,18 @@
  
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     formats: ["image/webp"],
-    domains: ['abs.twimg.com'],
+    domains: ['pbs.twimg.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pbs.twimg.com',
+        port: '',
+        // pathname: '/images/themes/**',
+      },
+    ],
   },
 }
 

@@ -106,9 +106,6 @@ export default function Home() {
       <br />
 
       <Projects />
-
-
-      <br />
       <br />
       <br />
       <br />

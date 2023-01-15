@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react'
 import style from '../styles/tweet-to-image.module.scss';
-import personImg from '../assets/person.jpg'
 import TwitterLogo from '../assets/TwitterLogo.png'
 import html2canvas from "html2canvas"
 import { FcLike } from "react-icons/fc";
@@ -18,9 +17,27 @@ const backgroundColorOptions = [
   { backgroundColor: "linear-gradient(90deg, rgba(204,251,63,1) 0%, rgba(70,252,245,0.6404936974789917) 71%)" },
 ]
 
-const TweetToImage = () => {
+function numFormatter(num) {
+  if (num > 999 && num < 1000000) {
+    return (num / 1000).toFixed(1) + 'K'; // convert to K for number from > 1000 < 1 million
+  } else if (num > 1000000) {
+    return (num / 1000000).toFixed(1) + 'M'; // convert to M for number from > 1 million
+  } else if (num <= 999) {
+    return num; // if value < 1000, nothing to do
+  }
+}
 
-  const [data, setData] = useState({ text: "If I had a dollar for every time someone asked me if Trump is coming back on this platform, Twitter would be minting money!" });
+const FakeTweetGenerator = () => {
+
+  const [tweetData, setTweetData] = useState({
+    name: "Elon Musk",
+    username: "elonmusk",
+    profilePic: "https://pbs.twimg.com/profile_images/1590968738358079488/IY9Gx6Ok_normal.jpg",
+    text: "If I fhad a dollar for every time someone asked me if Trump is coming back on this platform, Twitter would be minting money!",
+    likes: "992343",
+    reTweets: "343432",
+    timeStamp: "Mon Oct 31 17:10:05 2022"
+  });
   const [error, setError] = useState(null);
   const [showLikes, setShowLikes] = useState(true)
   const [showTimeDate, setShowTimeDate] = useState(true)
@@ -30,6 +47,7 @@ const TweetToImage = () => {
   const [tweetShadow, setTweetShadow] = useState(25);
   const [tweetFont, setTweetFont] = useState(20);
 
+  console.log("tweetData", tweetData);
 
   useEffect(() => {
     if (window.innerWidth < 900) {
@@ -55,13 +73,21 @@ const TweetToImage = () => {
 
     const result = await fetch(`${window.location.origin}/api/hello`, requestOptions)
     const data = await result.json();
-    setData(data)
+    setTweetData({
+      name: data.user.name,
+      username: data.user.screen_name,
+      profilePic: data?.user?.profile_image_url_https,
+      text: data.text,
+      likes: data.favorite_count,
+      reTweets: data.retweet_count,
+      timeStamp: data?.created_at
+    })
+
   }
 
   useEffect(() => {
-    featchTweet()
+    // featchTweet()
   }, [])
-
 
   function download() {
     html2canvas(document.getElementById("tweetWrapper")).then(function (canvas) {
@@ -95,6 +121,14 @@ const TweetToImage = () => {
     setTweetWidth(e.target.value)
   }
 
+  const imageUploadHandler=(event)=>{
+    if (event.target.files && event.target.files[0]) {
+      // setImage(URL.createObjectURL(event.target.files[0]));
+      setTweetData({ ...tweetData, profilePic: URL.createObjectURL(event.target.files[0])})
+
+    }
+  }
+
   return (
     <>
       <Head>
@@ -103,39 +137,18 @@ const TweetToImage = () => {
         <meta name='description' content='Online Tweet to Image Converter is a free tool for converting tweets into images and get tweet screenshots. You can add customized backgrounds such as gradients, solid colors or images and generate images from tweets. You can use light or dark theme. Also, language can be set before capturing tweets.' />
       </Head>
       <div class={style.main}>
-
-
-
-        {/* <!-- header --> */}
-        {/* <header className={style.header}>
-          <div class={style.container}>
-            <div class={style.wrapper}>
-              <div class={style.logo}>Tweet To Image</div>
-            </div>
-          </div>
-        </header> */}
-        {/* <!-- header end --> */}
-
         <div class={style.pagebody}>
           <div class={style.container}>
             <section>
               <div class={style.box}>
-                <h1>Convert tweet to image</h1>
+                <h1>Fake tweet generator</h1>
                 <p className={style.paraFontSize}>
-                  Paste the tweet URL, customize your screenshot and share it wherever you want.
+                Fake tweet generator is a web app that can generate realistic looking tweets in seconds
                 </p>
-                <input
-                  placeholder="https://twitter.com/SpaceX/status/1612698343691673601"
-                  class={style.input}
-                  type="text"
-                  onChange={onInputChange}
-                />
-                <span>{error}</span>
               </div>
             </section>
           </div>
         </div>
-
 
         <div className={style.container}>
           <div className={style.editor}>
@@ -144,30 +157,30 @@ const TweetToImage = () => {
                 <div className={style.tweetUserInfo}>
                   <div className={style.profilePicWrapper}>
                     <div className={style.profilePic}>
-                      <img src={data?.user?.profile_image_url_https} alt="" width="50" height="50" />
+                      <Image src={tweetData.profilePic} alt="autor profile picture" width="50" height="50" />
                     </div>
                     <div className={style.userInfo}>
-                      <h3>{data?.user?.name}</h3>
-                      <p >@{data?.user?.screen_name}</p>
+                      <h3>{tweetData.name}</h3>
+                      <p >@{tweetData.username}</p>
                     </div>
                   </div>
                   <div className={style.twitterIcon}>
-                    <Image src={TwitterLogo} alt="" width="30" height="30" />
+                    <Image src={TwitterLogo} alt="twitter logo" width="30" height="30" />
                   </div>
                 </div>
                 <div className={style.tweetText} style={{ fontSize: `${tweetFont}px` }}>
-                  {data?.text}
+                  {tweetData?.text}
                 </div>
 
-                {showTimeDate && <p className={style.tweetTime} style={{ fontSize: `${tweetFont - 5}px` }} >{data?.created_at}</p>}
+                {showTimeDate && <p className={style.tweetTime} style={{ fontSize: `${tweetFont - 8}px` }} >{tweetData?.timeStamp}</p>}
 
                 {showLikes &&
                   <div className={style.tweetLikesRetweets}>
                     <span>
-                      <FcLike size="20" /> &nbsp;&nbsp; {data?.favorite_count}
+                      <FcLike size="20" /> &nbsp;&nbsp; {numFormatter(tweetData?.likes)}
                     </span>
                     <span>
-                      <FiRepeat size="20" color="green" />  &nbsp;&nbsp; {data?.retweet_count}
+                      <FiRepeat size="20" color="green" />  &nbsp;&nbsp; {numFormatter(tweetData?.reTweets)}
                     </span>
                   </div>
                 }
@@ -195,14 +208,13 @@ const TweetToImage = () => {
               <div className={style.showLikes}>
                 <input value={!showLikes} checked={showLikes} onClick={() => setShowLikes(!showLikes)} className={style.likesCheck} type="checkbox" />
                 <div className={style.likesInfo}>
-                  <div className={style.label}>Show like and retweet count</div>
-                  <p>Show or hide numbers for likes, RTs etc.</p>
+                  <div className={style.paraFontSize}>Show like and retweet count</div>
                 </div>
               </div>
               <div className={style.showLikes}>
                 <input value={!showTimeDate} checked={showTimeDate} onClick={() => setShowTimeDate(!showTimeDate)} className={style.likesCheck} type="checkbox" />
                 <div className={style.likesInfo}>
-                  <div className={style.label}>Show date and time of tweet</div>
+                  <div className={style.paraFontSize}>Show date and time of tweet</div>
                 </div>
               </div>
 
@@ -227,59 +239,41 @@ const TweetToImage = () => {
               </div>
 
               <div className={style.editTweetText}>
-                <span className={style.paraFontSize}>Tweet Text:</span>
-                <textarea value={data.text} onChange={(e) => setData({ ...data, text: e.target.value })} name="w3review" rows="5" cols="50" />
+                <span className={style.paraFontSize}>Edit tweet:</span>
+                <textarea value={tweetData.text} onChange={(e) => setTweetData({ ...tweetData, text: e.target.value })} rows="4" cols="50" />
+              </div>
+
+              <div className={style.editAutorInfo}>
+                <div className={`${style.usernameWrapper} ${style.EditNameWrap}`} >
+                  <span className={style.paraFontSize}>Name:</span>
+                  <input type="text" value={tweetData.name} onChange={(e) => setTweetData({ ...tweetData, name: e.target.value })} />
+                </div>
+                <div className={style.usernameWrapper}>
+                  <span className={style.paraFontSize}>Username:</span>
+                  <input type="text" value={tweetData.username} onChange={(e) => setTweetData({ ...tweetData, username: e.target.value })} />
+                </div>
+              </div>
+
+              <div className={style.editAutorInfo}>
+                <div className={`${style.usernameWrapper} ${style.EditNameWrap}`} >
+                  <span className={style.paraFontSize}>Likes count:</span>
+                  <input type="number" value={tweetData.likes} onChange={(e) => setTweetData({ ...tweetData, likes: e.target.value })} />
+                </div>
+                <div className={style.usernameWrapper}>
+                  <span className={style.paraFontSize}>Re-tweet count:</span>
+                  <input type="number" value={tweetData.reTweets} onChange={(e) => setTweetData({ ...tweetData, reTweets: e.target.value })} />
+                </div>
+              </div>
+
+              <div className={style.ImageUpload}>
+                <span className={style.paraFontSize}>Edit profile picture:</span>
+                <input
+                  onChange={imageUploadHandler}
+                  type="file"
+                />
               </div>
 
               <button onClick={download} className={style.saveButton}>Download Image</button>
-            </div>
-          </div>
-        </div>
-
-        <div class={style.container}>
-          <div class={style.app}>
-            <div class={style.box3}>
-              <h2>How to use Tweet to Image App</h2>
-              <div class={style.boxchild}>
-                <div class={style.subBox} >
-                  <div class={style.boxchild1}>
-                    <div >1</div>
-                  </div>
-                  <h3>Enter tweet link</h3>
-                  <p>
-                    Copy the link of the tweet you want to convert to image and
-                    paste it in the input field at the top of the page. Hit enter
-                    and it&apos;ll fetch your tweet and update preview
-                  </p>
-                </div>
-
-                <div class={style.subBox}>
-                  <div class={style.boxchild1}>
-                    <div>2</div>
-                  </div>
-                  <h3>Customize the image</h3>
-                  <p>
-                    On the left you&apos;ll see the preview of the image with tweet. On
-                    the right you&apos;ll see various customisations options to make
-                    the image look better and as you want.
-                  </p>
-                </div>
-
-                <div class={style.subBox}>
-                  <div class={style.boxchild1}>
-                    <div>3</div>
-                  </div>
-
-                  <h3>Export image as PNG or copy
-                  </h3>
-                  <p>Once you&apos;re done customising the
-                    image, you can save the image as PNG
-                    file, or you also have the option to copy the
-                    screenshot to clipboard for quicker
-                    use.</p>
-
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -296,4 +290,4 @@ const TweetToImage = () => {
   )
 }
 
-export default TweetToImage
+export default FakeTweetGenerator
