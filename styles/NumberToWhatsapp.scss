@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.numberToWhatapp {
+    padding: 10px;
+    .contener1 {
+        max-width: 1300px;
+        margin: auto;
+    }
+
+    .o {
+        flex: 1;
+    }
+
+    section .column {
+        width: 100%;
+        margin: auto;
+        /* background-color: aqua; */
+        display: flex;
+
+    }
+
+    .o {
+        flex: 1;
+    }
+
+
+    h1 {
+
+        font-size: 32px;
+        padding: 10px;
+        text-align: center;
+
+    }
+
+    .h1 {
+        flex: 2;
+
+    }
+
+    .column2 {
+        /* border: 1px solid black; */
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        gap: 5px;
+        margin: 10px;
+
+    }
+
+
+
+    .column2 .button-1 {
+        border: 1px solid black;
+        width: 100px;
+        border-radius: 5px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* padding:10px; */
+    }
+
+    .column2 .button-2 {
+        background-color: #3e8ed0;
+        /* border: 1px solid black; */
+        padding: 10px;
+        width: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        border-color: transparent;
+        color: #fff;
+    }
+
+
+
+    .contener {
+        max-width: 1078px;
+        margin: 0 auto;
+
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    input {
+        max-width: 1078px;
+        padding: 15px;
+        font-size: 20px;
+
+    }
+
+    .contact label {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+
+    .textarea {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .textarea label {
+        font-size: 20px;
+        padding: 10px;
+
+    }
+
+    .textarea textarea {
+        font-size: 20px;
+        padding: 10px;
+
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        gap: 5px;
+        margin-bottom: 50px;
+
+    }
+
+    .buttons .button1 {
+        background-color: #485fc7;
+        border-color: transparent;
+        color: #fff;
+        font-size: 17px;
+        width: 90px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .buttons .button2 {
+        font-size: 17px;
+        width: 90px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .section-2 {
+        display: flex;
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+
+    .leftbox {
+        width: 100%;
+        padding: 10px;
+        font-family: BlinkMacSystemFont,
+            -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue"
+            , Helvetica, Arial, sans-serif;
+    }
+
+    .leftbox .title {
+        color: #363636;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.125;
+        margin-bottom: 24px;
+
+    }
+
+    .leftbox h2 {
+        margin-bottom: 15px;
+        /* border: 1px solid black; */
+    }
+
+    .leftbox p {
+        margin-bottom: 20px;
+        font-size: 17px;
+        line-height: 25px;
+    }
+
+    .leftbox hr {
+        margin-bottom: 24px;
+    }
+
+    .leftbox a:link,
+    :visited {
+        text-decoration: none;
+        color: blue;
+    }
+
+    .leftbox ul {
+        margin-left: 32px;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .leftbox ul li {
+        margin-top: 4px;
+    }
+
+    .rightbox {
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+
+    }
+
+    .rightbox p {
+        font-size: 29px;
+    }
+
+    .rightbox hr {
+        margin-bottom: 24px;
+    }
+
+    .rightbox a:link {
+        text-decoration: none;
+
+    }
+
+    .rightbox .--button {
+        width: 250px;
+        height: 60px;
+        padding: 10px;
+        margin-left: 50px;
+        background-color: #fff;
+        border-color: #dbdbdb;
+        color: black;
+        border: 1px solid black;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .rightbutton1 {
+        font-size: 21px;
+    }
+
+    .rightbutton2 {
+
+        font-size: 16px;
+
+    }
+
+    .rightbutton3 {
+        font-size: 21px;
+    }
+
+    .rightbutton4 {
+        font-size: 21px;
+    }
+
+
+    .--button:hover {
+        background-color: gray;
+        color: white;
+
+    }
+}
