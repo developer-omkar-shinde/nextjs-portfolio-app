@@ -6,6 +6,7 @@
 
 .numberToWhatapp {
     padding: 10px;
+
     .contener1 {
         max-width: 1300px;
         margin: auto;
@@ -208,12 +209,9 @@
     }
 
     .rightbox {
-
         display: flex;
         flex-direction: column;
         gap: 10px;
-
-
     }
 
     .rightbox p {
