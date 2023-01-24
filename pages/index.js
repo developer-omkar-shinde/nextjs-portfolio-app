@@ -105,7 +105,7 @@ export default function Home() {
       <br />
       <br />
 
-      <Projects />
+     {/* <Projects /> */}
       <br />
       <br />
       <br />
