@@ -22,7 +22,7 @@ const About = () => {
             <div className="container" >
                 <div className="row">
                     <div className="about-text text-center col-xl-6 col-sm-12 p-5 ">
-                        <Image style={{ borderRadius: "50%", width:"100%" }} src={omkarpic}  alt="picture of omkar" />
+                        <Image style={{ borderRadius: "50%", width:"300px", height : "300px"}} src={omkarpic}  alt="picture of omkar" />
                         <h1> Who&apos;s this guy?</h1>
                         <p> I&apos;m a Full Stack Web Developer ,
                             I have serious passion for UI effects, animations and creating intuitive, dynamic user experiences.</p>
