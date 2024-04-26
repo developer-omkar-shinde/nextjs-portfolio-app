@@ -28,12 +28,12 @@ function Navbar() {
 
 
     return (
-        <>
+        <div>
             <div id="nav" className="navbar">
-                // <div className="menu1" onClick={Toggle}><i className="fa fa-bars"></i></div>
+                {/* // <div className="menu1" onClick={Toggle}><i className="fa fa-bars"></i></div>
                 // <ul>
                 // <Navlinks/>
-                // </ul>
+                // </ul> */}
                 <a className="mybtn" href="https://wa.me/919309120138" role="button">Contact Us</a>
             </div>
 
@@ -72,7 +72,8 @@ function Navbar() {
                 </div>
 
             </div>
-//             {toggle? "":
+
+{/* //             {toggle? "":
 //             <div className="drower">
 //                 <div className="menu2" onClick={Toggle}>
 //                     <i className="fa fa-bars"></i>
@@ -81,7 +82,8 @@ function Navbar() {
 //                 <Navlinks/>
 //                 </ul>
 //             </div>
-// }
+// } */}
+
             <div class="icon-bar">
                 <a href="https://github.com/omkar-shinde-96k" itemprop="github" class="google"><i class="fa fa-github"></i></a>
 
@@ -95,7 +97,7 @@ function Navbar() {
 
                 <a href="mailto:oshinde796@gmail.com" itemprop="E-mail" class="facebook"><i class="fa fa-envelope"></i></a>
             </div>
-        </>
+        </div>
     )
 }
 
