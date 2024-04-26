@@ -72,16 +72,16 @@ function Navbar() {
                 </div>
 
             </div>
-            {toggle? "":
-            <div className="drower">
-                <div className="menu2" onClick={Toggle}>
-                    <i className="fa fa-bars"></i>
-                </div>
-                <ul>
-                <Navlinks/>
-                </ul>
-            </div>
-}
+//             {toggle? "":
+//             <div className="drower">
+//                 <div className="menu2" onClick={Toggle}>
+//                     <i className="fa fa-bars"></i>
+//                 </div>
+//                 <ul>
+//                 <Navlinks/>
+//                 </ul>
+//             </div>
+// }
             <div class="icon-bar">
                 <a href="https://github.com/omkar-shinde-96k" itemprop="github" class="google"><i class="fa fa-github"></i></a>
 
