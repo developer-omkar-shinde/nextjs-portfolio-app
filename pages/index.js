@@ -51,7 +51,7 @@ export default function Home() {
 
       </Head>
       <main className={styles.HomeMain} itemScope itemType="https://omkarshinde.vercel.app/">
-        <div id="nav" className={styles.navbar}>
+        <div style={{display:"flex", justifyContent : "end"}} id="nav" className={styles.navbar}>
           {/* // <div className={styles.menu1} onClick={Toggle}><i className="fa fa-bars"></i></div>
           // <ul>
           //   <Navlinks />
