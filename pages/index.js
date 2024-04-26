@@ -52,10 +52,10 @@ export default function Home() {
       </Head>
       <main className={styles.HomeMain} itemScope itemType="https://omkarshinde.vercel.app/">
         <div id="nav" className={styles.navbar}>
-          // <div className={styles.menu1} onClick={Toggle}><i className="fa fa-bars"></i></div>
+          {/* // <div className={styles.menu1} onClick={Toggle}><i className="fa fa-bars"></i></div>
           // <ul>
           //   <Navlinks />
-          // </ul>
+          // </ul> */}
           <a className={styles.mybtn} href="https://wa.me/919309120138" role="button">Contact Us</a>
         </div>
 
@@ -74,7 +74,7 @@ export default function Home() {
           </div>
           <br />
 
-          // {toggle ? "" :
+          {/* // {toggle ? "" :
           //   <div className={styles.drower}>
           //     <div className="menu2" onClick={Toggle}>
           //       <i className="fa fa-bars"></i>
@@ -83,7 +83,7 @@ export default function Home() {
           //       <Navlinks />
           //     </ul>
           //   </div>
-          // }
+          // } */}
 
           <div className={styles.SocialIcons}>
             <a href="https://github.com/omkar-shinde-96k" itemProp="Github" target="_blank" rel="noreferrer" itemType="https://github.com/omkar-shinde-96k" className="fa fa-github"></a>
@@ -112,5 +112,3 @@ export default function Home() {
     </div>
   )
 }
-
-
