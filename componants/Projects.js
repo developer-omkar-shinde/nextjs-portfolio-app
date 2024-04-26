@@ -1,42 +1,61 @@
-
-import React, { useState } from 'react'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Projects.module.scss';
- 
+import React, { useState } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Projects.module.scss";
 
 function ProjectCom(props) {
-
   return (
     <>
       <div className="project-outer text-center col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 ">
         <div className="project-inner boxshadow">
-          <Image className="img-div" onClick={() => props.OpenModel(props.img, true)} src={props.img} width="700" height="380" style={{
-            cursor: "pointer"
-          }}
-            alt={props.title} />
+          <Image
+            className="img-div"
+            onClick={() => props.OpenModel(props.img, true)}
+            src={props.img}
+            width="700"
+            height="380"
+            style={{
+              cursor: "pointer",
+            }}
+            alt={props.title}
+          />
           <h5>{props.title}</h5>
           <p>{props.details}</p>
 
           <div className="details">
-            <a href={props.priview} target="_blank" rel="noreferrer" style={{ color: "black", border: "1px solid blue" }} className="mybtn">Visit Website</a>
-            <a href={props.github || `https://github.com/omkar-shinde-96k`} target="_blank" rel="noreferrer" style={{ color: "black", border: "1px solid blue" }} className="mybtn">GitHub</a>
+            <a
+              href={props.priview}
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "black", border: "1px solid blue" }}
+              className="mybtn"
+            >
+              Visit Website
+            </a>
+            <a
+              href={props.github || `https://github.com/omkar-shinde-96k`}
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "black", border: "1px solid blue" }}
+              className="mybtn"
+            >
+              GitHub
+            </a>
           </div>
         </div>
       </div>
-
     </>
-  )
+  );
 }
 
-
-
-
 export default function Projects() {
-  const [ImgModel, SetImgModel] = useState({ img: "/images/portfolio.jpg", status: false })
+  const [ImgModel, SetImgModel] = useState({
+    img: "/images/portfolio.jpg",
+    status: false,
+  });
   const OpenModel = (img, status) => {
-    SetImgModel({ img, status })
-  }
+    SetImgModel({ img, status });
+  };
   return (
     <>
       <Head>
@@ -76,50 +95,141 @@ export default function Projects() {
                 </Switch>
             </Router> */}
 
-
       {/* ////////// */}
 
-      <h1 id="about" className="text-center p-1 pb-0"> Projects </h1>
+      <h1 id="about" className="text-center p-1 pb-0">
+        {" "}
+        Projects{" "}
+      </h1>
 
       <br />
 
       <div className="container-fluid">
-        <div className="row project-row"  itemScope="Projects" itemType="https://omkarshinde.vercel.app/#projects" >
+        <div
+          className="row project-row"
+          itemScope="Projects"
+          itemType="https://omkarshinde.vercel.app/#projects"
+        >
+          <ProjectCom
+            img="/images/portfolio.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview=""
+            title=" Instagram Clone "
+            details="HTML , SCSS , Javascript , React Js , NodeJS , ExpressJS , MongoDB"
+          />
 
-          <ProjectCom img="/images/portfolio.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="" title=" Instagram Clone " details="HTML , SCSS , Javascript , React Js , NodeJS , ExpressJS , MongoDB" />
+          <ProjectCom
+            img="/images/gmailclone.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview="https://gmailclone.vercel.app/"
+            title="Gmail Clone"
+            details="HTML , SCSS , Javascript , React Js"
+          />
 
-          <ProjectCom img="/images/gmailclone.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="https://gmailclone.vercel.app/" title="Gmail Clone" details="HTML , SCSS , Javascript , React Js" />
+          <ProjectCom
+            img="/images/amazon.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview=""
+            title=" Amazon Clone "
+            details="HTML , SCSS , Javascript , React Js , NodeJS , ExpressJS , MongoDB"
+          />
 
-          <ProjectCom img="/images/amazon.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="" title=" Amazon Clone " details="HTML , SCSS , Javascript , React Js , NodeJS , ExpressJS , MongoDB" />
+          <ProjectCom
+            img="/images/dgtc.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview="https://mangaonseniorcollege.com/"
+            title="DGTC College Website "
+            details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js "
+          />
 
+          <ProjectCom
+            img="/images/adslawcollege.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview="https://adslawcollege.com/"
+            title="ADS Law College Website "
+            details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js "
+          />
 
-          <ProjectCom img="/images/dgtc.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="https://mangaonseniorcollege.com/" title="DGTC College Website " details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js " />
+          <ProjectCom
+            img="/images/snsschoo.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview="https://mangaonseniorcollege.com/"
+            title="SNS School Website "
+            details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js "
+          />
 
-          <ProjectCom img="/images/adslawcollege.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="https://adslawcollege.com/" title="ADS Law College Website " details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js " />
+          <ProjectCom
+            img="/images/mvflex.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview="http://downloadmovies.unaux.com/"
+            title="Movie Downloading Site"
+            details="HTML 5, CSS 3, Javascript , Bootstrap , Jquery"
+          />
 
-          <ProjectCom img="/images/snsschoo.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="https://mangaonseniorcollege.com/" title="SNS School Website " details="HTML , CSS , Javascript , Bootstrap , Jquery , React Js " />
+          <ProjectCom
+            img="/images/weather.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview="https://live-weather-today.herokuapp.com/"
+            title="Live Weather App"
+            details="HTML , SCSS , Javascript , Bootstrap , React Js"
+          />
 
+          <ProjectCom
+            img="/images/webwhatsapp.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview="http://whatsappweb.unaux.com"
+            title="Web Whatsapp UI"
+            details="HTML 5 , SCSS 3 , Javascript , Bootstrap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+          />
 
-          <ProjectCom img="/images/mvflex.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="http://downloadmovies.unaux.com/" title="Movie Downloading Site" details="HTML 5, CSS 3, Javascript , Bootstrap , Jquery" />
+          <ProjectCom
+            img="/images/portfolio.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview=""
+            title="Portfolio Website"
+            details="HTML5 , CSS3 , Javascript , Bootstrap , React Js"
+          />
 
-          <ProjectCom img="/images/weather.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="https://live-weather-today.herokuapp.com/" title="Live Weather App" details="HTML , SCSS , Javascript , Bootstrap , React Js" />
-
-          <ProjectCom img="/images/webwhatsapp.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="http://whatsappweb.unaux.com" title="Web Whatsapp UI" details="HTML 5 , SCSS 3 , Javascript , Bootstrap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " />
-
-          <ProjectCom img="/images/portfolio.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="" title="Portfolio Website" details="HTML5 , CSS3 , Javascript , Bootstrap , React Js" />
-
-          <ProjectCom img="/images/calc.jpg" OpenModel={OpenModel} github="https://github.com/omkar-shinde-96k" priview="http://onlinecalculator.unaux.com/" title="Online Calculator" details=" &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HTML 5, CSS 3, Javascript  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " />
-
+          <ProjectCom
+            img="/images/calc.jpg"
+            OpenModel={OpenModel}
+            github="https://github.com/omkar-shinde-96k"
+            priview="http://onlinecalculator.unaux.com/"
+            title="Online Calculator"
+            details=" &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HTML 5, CSS 3, Javascript  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+          />
         </div>
       </div>
       <div id="project"></div>
-      {
-        ImgModel.status ?   <div className={styles.openModel}>
-        <Image src={ImgModel.img} width="100" height="100" layout="fill" alt={ImgModel.img} />
-        <div className={styles.closeicon} onClick={()=>SetImgModel({status:false })} >close</div>
-      </div> :""
-      }
-    
+      {ImgModel.status ? (
+        <div className={styles.openModel}>
+          <Image
+            src={ImgModel.img}
+            width="100"
+            height="100"
+            layout="fill"
+            alt={ImgModel.img}
+          />
+          <div
+            className={styles.closeicon}
+            onClick={() => SetImgModel({ status: false })}
+          >
+            close
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </>
-  )
+  );
 }
