@@ -30,10 +30,10 @@ function Navbar() {
     return (
         <>
             <div id="nav" className="navbar">
-                <div className="menu1" onClick={Toggle}><i className="fa fa-bars"></i></div>
-                <ul>
-                <Navlinks/>
-                </ul>
+                // <div className="menu1" onClick={Toggle}><i className="fa fa-bars"></i></div>
+                // <ul>
+                // <Navlinks/>
+                // </ul>
                 <a className="mybtn" href="https://wa.me/919309120138" role="button">Contact Us</a>
             </div>
 
