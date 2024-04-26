@@ -74,16 +74,16 @@ export default function Home() {
           </div>
           <br />
 
-          {toggle ? "" :
-            <div className={styles.drower}>
-              <div className="menu2" onClick={Toggle}>
-                <i className="fa fa-bars"></i>
-              </div>
-              <ul>
-                <Navlinks />
-              </ul>
-            </div>
-          }
+          // {toggle ? "" :
+          //   <div className={styles.drower}>
+          //     <div className="menu2" onClick={Toggle}>
+          //       <i className="fa fa-bars"></i>
+          //     </div>
+          //     <ul>
+          //       <Navlinks />
+          //     </ul>
+          //   </div>
+          // }
 
           <div className={styles.SocialIcons}>
             <a href="https://github.com/omkar-shinde-96k" itemProp="Github" target="_blank" rel="noreferrer" itemType="https://github.com/omkar-shinde-96k" className="fa fa-github"></a>
