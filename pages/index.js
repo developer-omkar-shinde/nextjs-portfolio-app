@@ -52,15 +52,15 @@ export default function Home() {
       </Head>
       <main className={styles.HomeMain} itemScope itemType="https://omkarshinde.vercel.app/">
         <div id="nav" className={styles.navbar}>
-          <div className={styles.menu1} onClick={Toggle}><i className="fa fa-bars"></i></div>
-          <ul>
-            <Navlinks />
-          </ul>
+          // <div className={styles.menu1} onClick={Toggle}><i className="fa fa-bars"></i></div>
+          // <ul>
+          //   <Navlinks />
+          // </ul>
           <a className={styles.mybtn} href="https://wa.me/919309120138" role="button">Contact Us</a>
         </div>
 
         <div className='main'>
-          <h1 itemProp="omkar shinde"  >Hello,</h1>
+          <h1 itemProp="omkar shinde">Hello,</h1>
           <h2 itemProp="name">I&apos;m Omkar Shinde</h2>
           <h1 itemProp="omkar shinde" className="typewrite" data-period="2000" data-type='["Web Devloper", "React Developer","Web Designer"]'>
             <span className="wrap"></span>
