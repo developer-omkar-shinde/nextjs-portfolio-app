@@ -22,7 +22,7 @@ export default function Home() {
         <li><a href="#achivments">Achivments </a></li>
         <li><a href="#projects" > Projects </a></li>
         <li><a href="https://github.com/omkar-shinde-96k" > Github </a></li>
-        <li><a href="#about"> About Us </a></li>
+        <li><a href="#about"> About Me </a></li>
         <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/learn_web_development/" > Insta page </a></li>
       </>
     )
